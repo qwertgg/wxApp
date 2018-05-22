@@ -1,0 +1,25 @@
+<!--pages/datika.wxml-->
+
+<view class="cardCon" wx:for="{{allQuesNum}}" wx:key="allquesnum">
+
+
+
+  <!-- <block wx:for="{{item['isDone']}}"> -->
+  <!-- <text>{{item}}</text> -->
+
+
+  <block wx:if="{{item.isDone}}">
+    <view class="cardlef active" bindtap="selectTap" data-select="{{item.quesID+1}}">{{item.quesID+1}}</view>
+
+  </block>
+  <block wx:else>
+    <view class="cardlef" bindtap="selectTap" data-select="{{item.quesID+1}}">{{item.quesID+1}}</view>
+  </block> 
+
+
+<!-- </block> -->
+
+
+
+
+</view>

@@ -1,0 +1,59 @@
+/* pages/home/dati.wxss */
+.letterRight{
+background: url(https://tk.qikeya.com/static/images/wxmini/right.png);
+background-size: 100%;
+width:50rpx;
+height:50rpx;
+border:none;
+color:rgba(97,170,234,0);
+}
+.letterWrong{
+background: url(https://tk.qikeya.com/static/images/wxmini/error.png);
+background-size: 100%;
+width:50rpx;
+height:50rpx;
+border:none;
+color:rgba(253,97,90,0);
+}
+.questionCon radio{
+  display: none;
+}
+.questionWrapper{
+  padding:30rpx 50rpx;
+  line-height: 50rpx;
+}
+.content{
+    font-size:30rpx;
+}
+.questionCon{
+  display: flex;
+  align-items:center;
+  padding:0 50rpx;
+  margin-bottom: 15rpx;
+}
+.questionCon .letter{
+  width:50rpx;
+  height:50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border:1px #c9c9c9 solid;
+  border-radius: 50%;
+  margin-right:10rpx;
+}
+.degree{
+   display: flex;
+  align-items:center;
+  text-align: center;
+}
+.jiexiBaba{
+  display: none;
+}
+.jiexiBaba image{
+  width:32rpx;
+  height:30rpx;
+}
+.jiexiBaba{
+   border-top:10rpx #fffbfb solid;
+   width:80%;
+   margin:50rpx auto;
+}

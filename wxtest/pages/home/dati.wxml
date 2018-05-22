@@ -1,0 +1,103 @@
+<!--pages/home/dati.wxml-->
+<button bindtap="upTi">up</button>
+<button bindtap="downTi">down</button>
+<view>
+  <text>{{currentQueNum}}/{{allQue}}</text>
+</view>
+
+<view class="content" style="overflow-y: auto; ">
+  <view class="questionWrapper">{{currentQue.question}}</view>
+
+
+  <radio-group class="questionChoice" bindchange="listenerRadioGroup">
+    <!--label通常与radio和checkbox结合使用-->
+    <label style="display: flex" wx:for="{{currentQue.choices}}" wx:key="currentque">
+      <label class="questionCon">
+
+        <block wx:if="{{myselectAnswerIndex !=- 1}}">
+
+          <!-- 选对 -->
+
+          <block wx:if="{{rightAnswerIndex==myselectAnswerIndex && myselectAnswerIndex == index}}">
+
+            <text class="letterRight">{{indexArray[index]}} </text>
+            <radio value="{{index}}" disabled="ture" />{{item}}
+          </block>
+
+
+          <!-- 选错 -->
+
+          <block wx:else>
+
+            <block wx:if="{{rightAnswerIndex == index}}">
+              <text class="letterRight">{{indexArray[index]}} </text>
+              <radio value="{{index}}" disabled="ture" />{{item}}
+            </block>
+            <block wx:elif="{{myselectAnswerIndex == index}}">
+              <text class="letterWrong">{{indexArray[index]}} </text>
+              <radio value="{{index}}" disabled="ture" />{{item}}
+            </block>
+            <block wx:else>
+              <text class="letter">{{indexArray[index]}} </text>
+              <radio value="{{index}}" disabled="ture" />{{item}}
+            </block>
+
+
+          </block>
+
+        </block>
+        <block wx:else>
+          <text class="letter">{{indexArray[index]}} </text>
+          <radio value="{{index}}" />{{item}}
+        </block>
+      </label>
+    </label>
+  </radio-group>
+  <!-- disabled="{{myselectAnswe`r !=- 1 ? true : false}} " -->
+
+
+</view>
+<view class="jxi ">
+  <text>答案详解</text>
+</view>
+<view class="daan" wx:if="{{myselectAnswerIndex !=- 1}}">
+
+  <view class="jiexiBaba" style="display:block">
+    <view class="answerWrapper">
+      答案：正确答案
+      <text class="my-answer ">{{currentQue.answer}}</text>，你的答案
+      <text class="correct-answer ">{{myselectAnswer}}</text>
+    </view>
+
+    <view class="degree">难度：
+      <view class="star">
+        <block wx:if="{{currentQue.level == 2}}">
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starR.png"></image>
+          <image src="../../images/starR.png"></image>
+        </block>
+        <block wx:elif="{{currentQue.level == 3}}">
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starN.png"></image>
+        </block>
+        <block wx:else>
+          <image src="../../images/starN.png"></image>
+          <image src="../../images/starR.png"></image>
+          <image src="../../images/starR.png"></image>
+          <image src="../../images/starR.png"></image>
+          <image src="../../images/starR.png"></image>
+        </block>
+
+
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<button bindtap="datika">答题卡</button>

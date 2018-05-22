@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/home/dati",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/datika/datika"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}
