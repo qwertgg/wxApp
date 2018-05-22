@@ -1,0 +1,14 @@
+<view class="favorite">
+  <view class="favoriteCon">
+    <view class="item">
+        <view class="title">1. 以下哪项不是口腔预防医学研究的基本要素</view>
+        <view class="answer">答案：D个人保健方法</view>
+    </view>
+  </view>
+  <view class="favoriteCon">
+    <view class="item">
+        <view class="title">1. 以下哪项不是口腔预防医学研究的基本要素</view>
+        <view class="answer">答案：D个人保健方法</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view>{{aa}}</view>
+
+
+<button bindtap='clickbtn'>ssss</button>
+
+<button bindtap='clickbtn1'>ssss</button>
+
+
+<button bindtap='clickback'>ssss</button>
