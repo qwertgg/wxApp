@@ -39,8 +39,8 @@
 
               <view wx:for="{{cards}}" wx:for-index="index" wx:for-item="item">
                 <view wx:if="{{item.type == 2}}">
-                  <view wx:if="{{selects[index]}}" class="cardlef active">{{index+1}}</view>
-                  <view wx:else class="cardlef">{{index+1}} </view>
+                  <view wx:if="{{selects[index]}}" class="cardlef active" bindtap="selectTap" data-select="{{index+1}}">{{index+1}}</view>
+                  <view wx:else class="cardlef" bindtap="selectTap" data-select="{{index+1}}">{{index+1}} </view>
                 </view>
               </view>
             </view>
@@ -51,8 +51,8 @@
 
               <view wx:for="{{cards}}" wx:for-index="index" wx:for-item="item">
                 <view wx:if="{{item.type == 3}}">
-                  <view wx:if="{{selects[index]}}" class="cardlef active">{{index+1}}</view>
-                  <view wx:else class="cardlef">{{index+1}} </view>
+                  <view wx:if="{{selects[index]}}" class="cardlef active" bindtap="selectTap" data-select="{{index+1}}">{{index+1}}</view>
+                  <view wx:else class="cardlef" bindtap="selectTap" data-select="{{index+1}}">{{index+1}} </view>
                 </view>
               </view>
             </view>
@@ -64,8 +64,8 @@
 
               <view wx:for="{{cards}}" wx:for-index="index" wx:for-item="item">
                 <view wx:if="{{item.type == 4}}">
-                  <view wx:if="{{selects[index]}}" class="cardlef active">{{index+1}}</view>
-                  <view wx:else class="cardlef">{{index+1}} </view>
+                  <view wx:if="{{selects[index]}}" class="cardlef active" bindtap="selectTap" data-select="{{index+1}}">{{index+1}}</view>
+                  <view wx:else class="cardlef" bindtap="selectTap" data-select="{{index+1}}">{{index+1}} </view>
                 </view>
               </view>
             </view>
