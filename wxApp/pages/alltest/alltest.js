@@ -106,6 +106,14 @@ Page({
         }, () => {
           this.getCurrentQuestion()
         })
+        // debugger
+        // for (var j = 0; j < this.data.cardList.length; j++) {
+        //   var obj = this.data.cardList[j]
+        //   this.setData({
+        //     currentQuestionId: obj
+        //   })
+        //   this.getCurrentQuestion()
+        // }
       },
       fail: () => {
         wx.hideLoading()
@@ -163,7 +171,7 @@ Page({
         } else {
           typeStr = "B1";
         }
-
+        // debugger
         this.setData({
           questionC: res.data.data,
           rightAnswers: this.data.rightAnswers,
@@ -201,29 +209,63 @@ Page({
   },
   onShow: function (options) {
 
+
+
+
+
+
     var currentMySelect = wx.getStorageSync("currentMySelect")
     if (currentMySelect > 0) {
+      console.log('hahha')
       this.setData({
-        currentQuestionId: currentMySelect,
+        'swiper.current': currentMySelect - 1,
+        currentQuestionId: this.data.cardList[currentMySelect - 1].id,
         'item.index': currentMySelect,
+        'item.currentQuestionId': this.data.cardList[currentMySelect - 1].id,
+        isClick: false,
       })
       wx.removeStorageSync('currentMySelect')
-      this.getCurrentQuestion()
+      if (!this.data.cardList[this.data.swiper.current].choices) {
+
+        this.getCurrentQuestion(currentMySelect - 1);
+
+      } else {
+        console.log(this.data.cardList[currentMySelect - 1])
+
+        this.setData({
+
+          questionC: this.data.cardList[currentMySelect - 1],
+          rightAnswers: this.data.cardList[currentMySelect - 1].answer,
+
+        })
+      }
     }
+
 
   },
   changeSwiper: function (e) {
+    // debugger
     this.setData({
       'swiper.current': e.detail.current,
       currentQuestionId: this.data.cardList[e.detail.current].id,
       'item.index': e.detail.current + 1,
       'item.currentQuestionId': this.data.cardList[e.detail.current].id,
       isClick: false,
+      // index: e.detail.current,
     }, () => {
       if (!this.data.cardList[this.data.swiper.current].choices) {
 
         console.log(e.detail.current);
         this.getCurrentQuestion(e.detail.current);
+
+      } else {
+        console.log(this.data.cardList[e.detail.current])
+        this.setData({
+
+          questionC: this.data.cardList[e.detail.current],
+          rightAnswers: this.data.cardList[e.detail.current].answer,
+
+        })
       }
     })
   },

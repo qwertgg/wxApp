@@ -15,7 +15,7 @@
   </modal>
 
 
-  <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" current="swiper.current" bindchange="changeSwiper">
+  <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" current="{{swiper.current}}" skip-hidden-item-layout="true" circular="true" bindchange="changeSwiper">
     <swiper-item wx:for="{{cardList}}" wx:key="card">
       <view class="content">
 
@@ -31,7 +31,7 @@
 
             <form bindsubmit="submitAnswer">
               <view class="questionWrapper">
-                {{item.index}}{{item.question}}
+                {{cardList[index].question}}
               </view>
 
               <radio-group class="questionChoice" bindchange="radioChange">
@@ -39,7 +39,7 @@
 
 
 
-                <label style="display: flex" wx:for="{{questionC.choices}}">
+                <label style="display: flex" wx:for="{{cardList[index].choices}}">
 
 
 
@@ -108,19 +108,19 @@
                     <text>答案详解</text>
                   </view>
                   <view class="daan">答案：正确答案
-                    <text class="my-answer">{{questionC.answer}}</text>，你的答案
+                    <text class="my-answer">{{cardList[index].answer}}</text>，你的答案
                     <text class="correct-answer">{{indexArray[currentAnswers]}}</text>
                   </view>
                   <view class="degree">难度：
                     <view class="star">
-                      <block wx:if="{{questionC.level == 2}}">
+                      <block wx:if="{{cardList[index].level == 2}}">
                         <image src="../../images/starN.png"></image>
                         <image src="../../images/starN.png"></image>
                         <image src="../../images/starN.png"></image>
                         <image src="../../images/starR.png"></image>
                         <image src="../../images/starR.png"></image>
                       </block>
-                      <block wx:elif="{{questionC.level == 3}}">
+                      <block wx:elif="{{cardList[index].level == 3}}">
                         <image src="../../images/starN.png"></image>
                         <image src="../../images/starN.png"></image>
                         <image src="../../images/starN.png"></image>
@@ -173,42 +173,42 @@
               </view>
 
               <view class="questionWrapper">
-                {{questionC.question}}
+                {{cardList[index].question}}
               </view>
 
               <radio-group class="questionChoice" bindchange="radioChange">
                 <label class="questionCon">
                   <radio value="A"></radio>
                   <text class="letter"><text class="iconRight"></text>A</text>
-                  <view>{{questionC.choices[0]}}</view>
+                  <view>{{cardList[index].choices[0]}}</view>
                 </label>
               </radio-group>
               <radio-group class="questionChoice" bindchange="radioChange">
                 <label class="questionCon">
                   <radio value="B"></radio>
                   <text class="letter"><text class="iconRight"></text>B</text>
-                  <view>{{questionC.choices[1]}}</view>
+                  <view>{{cardList[index].choices[1]}}</view>
                 </label>
               </radio-group>
               <radio-group class="questionChoice" bindchange="radioChange">
                 <label class="questionCon">
                   <radio value="C"></radio>
                   <text class="letter"><text class="iconRight"></text>C</text>
-                  <view>{{questionC.choices[2]}}</view>
+                  <view>{{cardList[index].choices[2]}}</view>
                 </label>
               </radio-group>
               <radio-group class="questionChoice" bindchange="radioChange">
                 <label class="questionCon">
                   <radio value="D"></radio>
                   <text class="letter"><text class="iconRight"></text>D</text>
-                  <view>{{questionC.choices[3]}}</view>
+                  <view>{{cardList[index].choices[3]}}</view>
                 </label>
               </radio-group>
               <radio-group class="questionChoice" bindchange="radioChange">
                 <label class="questionCon">
                   <radio value="E"></radio>
                   <text class="letter"><text class="iconRight"></text>E</text>
-                  <view>{{questionC.choices[4]}}</view>
+                  <view>{{cardList[index].choices[4]}}</view>
                 </label>
               </radio-group>
             </form>
@@ -263,7 +263,7 @@
           <block wx:elif="{{item.type == 4}}">
             <form bindsubmit="submitAnswer" class="b1submit">
               <view class="questionWrapper queB1Wrapper">
-                {{questionC.question}}
+                {{cardList[index].question}}
                 <!-- <view> A 横断面调查</view>
                 <view> A 横断面调查</view>
                 <view> A 横断面调查</view>
